@@ -166,7 +166,7 @@ public class Ticker : Thing
 			{
 				_lastCoinReward = time;
 			}
-			else if (ToolkitSettings.EarningCoins && time - _lastCoinReward >= ToolkitSettings.CoinInterval && Viewers.jsonallviewers != null)
+			else if (ToolkitSettings.EarningCoins && time - _lastCoinReward >= ToolkitSettings.CoinInterval && Viewers.All != null)
 			{
 				_lastCoinReward = time;
 				Viewers.AwardViewersCoins();
@@ -179,7 +179,6 @@ public class Ticker : Thing
 			{
 				_lastMinute = time;
 				Toolkit.JobManager.CheckAllJobs();
-				Viewers.RefreshViewers();
 			}
 		}
 		catch (Exception ex)

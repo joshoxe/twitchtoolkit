@@ -29,7 +29,6 @@ public class Window_Viewers : Window
 	public Window_Viewers()
 	{
 		Helper.Log("constructing viewers window");
-		Viewers.RefreshViewers();
 		if (Current.Game != null)
 		{
 			component = Current.Game.GetComponent<GameComponentPawns>();

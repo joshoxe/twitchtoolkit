@@ -78,7 +78,7 @@ public abstract class IncidentWorker_Raid : IncidentWorker_PawnsArrive
 		parms.points = AdjustedRaidPoints(parms.points, parms.raidArrivalMode, parms.raidStrategy, parms.faction, combat);
 		PawnGroupMakerParms defaultPawnGroupMakerParms = IncidentParmsUtility.GetDefaultPawnGroupMakerParms(combat, parms, false);
 		List<Pawn> list = PawnGroupMakerUtility.GeneratePawns(defaultPawnGroupMakerParms, true).ToList();
-		List<string> viewernames = Viewers.ParseViewersFromJsonAndFindActiveViewers();
+		List<string> viewernames = Viewers.All.Select(v => v.username).ToList();
 		if (list.Count > 0 && viewernames != null)
 		{
 			int count = 0;
