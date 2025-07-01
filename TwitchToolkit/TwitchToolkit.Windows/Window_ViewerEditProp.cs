@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -29,7 +30,6 @@ public class Window_ViewerEditProp : Window
 		this.action = action;
 		this.prop = prop;
 		base.doCloseButton = true;
-		Viewers.RefreshViewers();
 		if (viewer == null)
 		{
 			allViewers = true;
@@ -91,7 +91,7 @@ public class Window_ViewerEditProp : Window
 		{
 			if (action == EditPropsActions.Give)
 			{
-				foreach (string viewer in Viewers.ParseViewersFromJsonAndFindActiveViewers())
+				foreach (string viewer in Viewers.All.Select(v => v.username).ToList())
 				{
 					viewersToUpdate.Add(Viewers.GetViewer(viewer));
 				}

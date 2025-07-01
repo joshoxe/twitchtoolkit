@@ -146,7 +146,7 @@ public class Window_Trackers : Window
 
 	private void UpdateTrackerStats()
 	{
-		viewerCount = ((Viewers.jsonallviewers != null) ? Viewers.ParseViewersFromJsonAndFindActiveViewers().Count : 0);
+		viewerCount = ((Viewers.All != null) ? Viewers.All.Count : 0);
 		cooldownsByTypeEnabled = ToolkitSettings.MaxEvents;
 		Store_Component component = Current.Game.GetComponent<Store_Component>();
 		goodEventsInLog = component.KarmaTypesInLogOf(KarmaType.Good);
